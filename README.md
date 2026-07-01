@@ -16,7 +16,13 @@ It is designed to behave like a strong Codex-style workspace agent:
 Run this from the root of the project currently open in your CLI:
 
 ```sh
-bash -c 'tmp_dir="$(mktemp -d)" && trap "rm -rf \"$tmp_dir\"" EXIT && git clone --depth 1 https://github.com/tranhuongk/antigravity-agents.git "$tmp_dir" && "$tmp_dir/install_to_project.sh" "$PWD"'
+curl -fsSL https://raw.githubusercontent.com/tranhuongk/antigravity-agents/main/install.sh | bash
+```
+
+Or install into a specific project path:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/tranhuongk/antigravity-agents/main/install.sh | bash -s -- /absolute/path/to/project
 ```
 
 Or copy these entries into the root of the project:
