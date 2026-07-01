@@ -14,10 +14,10 @@ It is designed for this stack:
 
 ## Install in a Flutter project
 
-From this pack folder:
+Run this from anywhere and replace the project path:
 
 ```sh
-./install_to_project.sh /absolute/path/to/your/flutter/project
+tmp_dir="$(mktemp -d)" && git clone --depth 1 https://github.com/tranhuongk/antigravity-agents.git "$tmp_dir" && "$tmp_dir/install_to_project.sh" /absolute/path/to/your/flutter/project && rm -rf "$tmp_dir"
 ```
 
 Or copy these entries into the root of the Flutter project:
