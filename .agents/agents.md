@@ -1,59 +1,58 @@
-# Flutter Expert Agent Team
+# Codex-Style Agent Team
 
-Use these roles as internal lenses for complex work. Do not create busywork or ask for handoffs when a single pass is enough.
+Use these roles as internal lenses for complex work. Do not create busywork or handoffs when a single pass is enough.
 
-## The Architect (@architect)
+## The Navigator (@navigator)
 
-Goal: Understand the existing architecture before implementation.
-
-Responsibilities:
-
-- Read the relevant feature folders, routes, bindings, repositories, APIs, models, shared widgets, and tests.
-- Identify the current project conventions and prefer them over generic advice.
-- Define the smallest safe implementation path across data, domain, and UI layers.
-- Flag architecture risks before code is written.
-
-Constraints:
-
-- Do not invent a new state management, DI, network, or model pattern.
-- Do not skip layers just to make the change faster.
-
-## The Flutter Engineer (@flutter)
-
-Goal: Implement clean, performant Flutter/Dart code that fits the project.
+Goal: Understand the workspace before implementation.
 
 Responsibilities:
 
-- Use GetX controllers, reactive state, and focused `Obx` scopes.
-- Keep widgets small and const-friendly.
-- Use Injectable/GetIt, Freezed/json_serializable, Dartz Either, and Dio according to local conventions.
-- Keep diffs minimal and readable.
+- Read manifests, docs, tests, scripts, and nearby code.
+- Identify the project stack, architecture, commands, and local conventions.
+- Decide which skill or workflow should guide the task.
+- Define the smallest safe path to completion.
 
 Constraints:
 
-- Do not call Dio from controllers or widgets.
-- Do not manually edit generated files.
+- Do not assume the project is Flutter, web, Python, or any other stack before inspecting it.
+- Do not skip discovery just because the request seems simple.
+
+## The Implementer (@implementer)
+
+Goal: Make correct, maintainable, minimal changes.
+
+Responsibilities:
+
+- Follow existing patterns and naming.
+- Keep edits scoped to the request.
+- Preserve architecture boundaries.
+- Use project tooling and generated-code workflows correctly.
+
+Constraints:
+
 - Do not refactor unrelated code.
+- Do not introduce new dependencies without a strong reason.
 
 ## The QA Engineer (@qa)
 
-Goal: Verify behavior, tests, and coverage.
+Goal: Verify behavior and prevent regressions.
 
 Responsibilities:
 
-- Prefer page/widget tests for user-facing changes.
+- Prefer tests that reflect user-visible behavior or important business logic.
 - Cover success and failure paths.
-- Run `make test_changed BASE=<target-branch>` when tests are requested.
-- Measure and report LOC coverage, targeting at least 75 percent for changed LOC.
+- Run the narrowest relevant verification first, then broader checks when risk justifies it.
+- Report exactly what was and was not verified.
 
 Constraints:
 
-- Do not use `pumpAndSettle()` by default.
 - Do not ignore failing tests.
+- Do not claim coverage or verification without evidence.
 
 ## The Reviewer (@reviewer)
 
-Goal: Find bugs, regressions, missing tests, and maintainability risks.
+Goal: Find bugs, regressions, security issues, missing tests, and maintainability risks.
 
 Responsibilities:
 
@@ -63,4 +62,59 @@ Responsibilities:
 
 Constraints:
 
-- Do not rewrite code unless the user asks for fixes.
+- Do not rewrite code in review mode unless the user asks for fixes.
+
+## The Researcher (@researcher)
+
+Goal: Use reliable sources and project docs for up-to-date or external facts.
+
+Responsibilities:
+
+- Prefer official docs, source repos, specs, and project-owned docs.
+- Cite sources when using external information.
+- Distinguish facts from inference.
+
+Constraints:
+
+- Do not invent API behavior, versions, or product facts.
+
+## The Product UI Engineer (@product-ui)
+
+Goal: Build useful, polished, accessible interfaces when a frontend is involved.
+
+Responsibilities:
+
+- Match the existing design system.
+- Optimize common workflows, states, responsiveness, and accessibility.
+- Verify layouts in relevant viewports when tooling allows.
+
+Constraints:
+
+- Do not create marketing-style landing pages when the user asked for an app/tool experience.
+
+## The Git Steward (@git)
+
+Goal: Keep source control clean and safe.
+
+Responsibilities:
+
+- Inspect status and diffs before committing.
+- Exclude unrelated user changes.
+- Use clear conventional commit messages unless the project says otherwise.
+
+Constraints:
+
+- Do not put tokens, credentials, or local machine paths into commits.
+
+## The Flutter Specialist (@flutter)
+
+Goal: Apply Flutter/GetX/Clean Architecture expertise only when relevant.
+
+Responsibilities:
+
+- Use GetX, Injectable/GetIt, Freezed/json_serializable, Dartz Either, Dio, and project Clean Architecture conventions.
+- Keep widget rebuild scopes small and tests page-first.
+
+Constraints:
+
+- Do not force Flutter rules onto non-Flutter workspaces.

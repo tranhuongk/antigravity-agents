@@ -1,26 +1,25 @@
-# Antigravity Flutter Expert Pack
+# Antigravity Codex-Style Agent Pack
 
-This pack gives Google Antigravity persistent project rules, focused skills, and repeatable workflows for a Flutter/GetX/Clean Architecture codebase.
+This pack gives Google Antigravity persistent project rules, focused skills, and repeatable workflows for many kinds of work: coding, debugging, review, tests, docs, research, frontend UI, Git, and Flutter/GetX projects.
 
-It is designed for this stack:
+It is designed to behave like a strong Codex-style workspace agent:
 
-- Flutter and Dart 3.x
-- GetX controllers, `.obs`, `Obx`
-- Injectable and GetIt for DI
-- Freezed and json_serializable for immutable models
-- Dartz `Either<Failure, T>` for repository results
-- Dio inside API/repository layers only
-- Clean Architecture: `data` -> `domain` -> `presentation/ui`
+- Read the project before writing code.
+- Infer the stack instead of assuming one.
+- Follow existing architecture and local conventions.
+- Keep diffs minimal and protect user changes.
+- Implement end to end, then verify with the right tests or commands.
+- Use Flutter-specific expertise only when the project or task is Flutter/Dart.
 
-## Install in a Flutter project
+## Install in the Current Project
 
-Run this from the root of the Flutter project currently open in your CLI:
+Run this from the root of the project currently open in your CLI:
 
 ```sh
 bash -c 'tmp_dir="$(mktemp -d)" && trap "rm -rf \"$tmp_dir\"" EXIT && git clone --depth 1 https://github.com/tranhuongk/antigravity-agents.git "$tmp_dir" && "$tmp_dir/install_to_project.sh" "$PWD"'
 ```
 
-Or copy these entries into the root of the Flutter project:
+Or copy these entries into the root of the project:
 
 ```text
 .agents/
@@ -45,15 +44,34 @@ For skills, you can also try:
 
 ## What is included
 
-- `.agents/rules/00-flutter-google-expert.md`: always-on project behavior.
-- `.agents/agents.md`: optional role map for larger tasks.
+- `.agents/rules/00-codex-universal-expert.md`: always-on Codex-style behavior for any project.
+- `.agents/rules/10-flutter-google-expert.md`: model-decision Flutter/GetX specialist rules.
+- `.agents/agents.md`: optional universal role map for larger tasks.
+- `.agents/skills/codex-codebase-implementation/SKILL.md`: general implementation workflow.
+- `.agents/skills/codex-debug-fix/SKILL.md`: reproduce, fix, and verify failures.
+- `.agents/skills/codex-code-review/SKILL.md`: review workflow with findings first.
+- `.agents/skills/codex-test-verification/SKILL.md`: tests, coverage, and quality gates.
+- `.agents/skills/codex-docs-research/SKILL.md`: documentation and source-grounded research.
+- `.agents/skills/codex-frontend-product-ui/SKILL.md`: frontend/product UI implementation.
+- `.agents/skills/codex-git-workflow/SKILL.md`: safe Git commit/push/release workflow.
 - `.agents/skills/flutter-feature-clean-architecture/SKILL.md`: implementation workflow.
 - `.agents/skills/flutter-test-coverage/SKILL.md`: page-first tests and coverage workflow.
 - `.agents/skills/flutter-code-review/SKILL.md`: review workflow with findings first.
 - `.agents/skills/flutter-bugfix-debug/SKILL.md`: debug and fix workflow.
 - `.agents/skills/flutter-codegen-di/SKILL.md`: Freezed/json_serializable/Injectable workflow.
-- `.agents/workflows/*.md`: slash-command prompts for common tasks.
+- `.agents/workflows/*.md`: slash-command prompts for universal and Flutter-specific tasks.
 - `AGENTS.md`: fallback root instructions for tools that inspect root agent files.
+
+## Useful Workflows
+
+- `/codex-task <request>`: implement a general task.
+- `/codex-debug <failure>`: reproduce and fix a failure.
+- `/codex-review <scope>`: review code without editing.
+- `/codex-test <request>`: add/run tests and verification.
+- `/codex-docs <request>`: write docs or research.
+- `/codex-git <request>`: commit, push, or prepare release notes safely.
+- `/flutter-feature <request>`: implement a Flutter/GetX feature.
+- `/flutter-test-changed <request>`: write Flutter tests and report changed LOC coverage.
 
 ## Notes
 

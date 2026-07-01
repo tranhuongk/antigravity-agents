@@ -4,7 +4,7 @@ description: Implement a Flutter/GetX Clean Architecture feature with project di
 
 When the user runs `/flutter-feature <request>`, implement the request using these steps:
 
-1. Apply `.agents/rules/00-flutter-google-expert.md`.
+1. Apply `.agents/rules/10-flutter-google-expert.md`.
 2. Use the `flutter-feature-clean-architecture` skill.
 3. Inspect the existing project structure and similar feature patterns before editing.
 4. Identify affected layers: data, domain, ui/presentation, DI, routes, tests.

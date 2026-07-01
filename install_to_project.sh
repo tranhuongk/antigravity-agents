@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [[ $# -ne 1 ]]; then
-  echo "Usage: $0 /absolute/path/to/flutter/project" >&2
+  echo "Usage: $0 /absolute/path/to/project" >&2
   exit 64
 fi
 
@@ -13,17 +13,13 @@ if [[ ! -d "$target" ]]; then
   exit 66
 fi
 
-if [[ ! -f "$target/pubspec.yaml" ]]; then
-  echo "Warning: pubspec.yaml was not found in $target. Installing anyway." >&2
-fi
-
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 mkdir -p "$target/.agents"
 rsync -a "$script_dir/.agents/" "$target/.agents/"
 cp "$script_dir/AGENTS.md" "$target/AGENTS.md"
 
-echo "Installed Antigravity Flutter Expert Pack into:"
+echo "Installed Antigravity Codex-Style Agent Pack into:"
 echo "  $target/.agents"
 echo "  $target/AGENTS.md"
 echo
