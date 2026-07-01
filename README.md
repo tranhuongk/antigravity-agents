@@ -1,6 +1,6 @@
 # Antigravity Codex-Style Agent Pack
 
-This pack gives Google Antigravity persistent project rules, focused skills, and repeatable workflows for many kinds of work: coding, debugging, review, tests, docs, research, frontend UI, Git, and Flutter/GetX projects.
+This pack gives Google Antigravity persistent project rules, focused skills, and repeatable workflows for many kinds of work: coding, debugging, review, tests, docs, research, frontend UI, Git, and Flutter projects.
 
 It is designed to behave like a strong Codex-style workspace agent:
 
@@ -9,7 +9,7 @@ It is designed to behave like a strong Codex-style workspace agent:
 - Follow existing architecture and local conventions.
 - Keep diffs minimal and protect user changes.
 - Implement end to end, then verify with the right tests or commands.
-- Use Flutter-specific expertise only when the project or task is Flutter/Dart.
+- Use Flutter-specific expertise only when the project or task is Flutter/Dart, while following the project's existing state management.
 
 ## Install in the Current Project
 
@@ -59,7 +59,7 @@ For skills, you can also try:
 ## What is included
 
 - `.agents/rules/00-codex-universal-expert.md`: always-on Codex-style behavior for any project.
-- `.agents/rules/10-flutter-google-expert.md`: model-decision Flutter/GetX specialist rules.
+- `.agents/rules/10-flutter-google-expert.md`: model-decision Flutter specialist rules.
 - `.agents/agents.md`: optional universal role map for larger tasks.
 - `.agents/skills/codex-codebase-implementation/SKILL.md`: general implementation workflow.
 - `.agents/skills/codex-debug-fix/SKILL.md`: reproduce, fix, and verify failures.
@@ -84,7 +84,7 @@ For skills, you can also try:
 - `/codex-test <request>`: add/run tests and verification.
 - `/codex-docs <request>`: write docs or research.
 - `/codex-git <request>`: commit, push, or prepare release notes safely.
-- `/flutter-feature <request>`: implement a Flutter/GetX feature.
+- `/flutter-feature <request>`: implement a Flutter feature.
 - `/flutter-test-changed <request>`: write Flutter tests and report changed LOC coverage.
 
 ## Notes

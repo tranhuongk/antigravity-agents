@@ -20,7 +20,7 @@ Review Flutter/Dart changes for bugs, regressions, architecture violations, miss
    - Freezed/json fields that do not match API payloads
    - unsafe `!`, `dynamic`, or unchecked casts
    - stale generated files
-   - overly broad `Obx` scopes or nested reactive builders
+   - overly broad state-listener scopes or nested reactive builders
    - computation inside `build`
    - missing loading/error/empty states
    - missing success and failure tests

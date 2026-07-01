@@ -46,11 +46,11 @@ When asked to commit or push:
 - Use concise conventional commit messages when no project-specific convention exists.
 - Never put tokens or credentials in remotes, commits, logs, or docs.
 
-## Flutter/GetX Projects
+## Flutter Projects
 
 When the repo is Flutter/Dart or the task mentions Flutter, apply the Flutter skills and rules too:
 
-- GetX for state management.
+- Follow the project's existing state management pattern.
 - Injectable + GetIt for DI.
 - Freezed + json_serializable for models.
 - Dartz `Either<Failure, T>` for repository results.

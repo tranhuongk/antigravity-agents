@@ -1,13 +1,13 @@
 ---
 name: flutter-feature-clean-architecture
-description: Use this skill when implementing or modifying Flutter features, pages, controllers, bindings, widgets, repositories, APIs, request params, Freezed models, or user-facing flows in a Flutter/GetX/Clean Architecture app.
+description: Use this skill when implementing or modifying Flutter features, pages, state holders, widgets, repositories, APIs, request params, Freezed models, or user-facing flows in a Flutter/Clean Architecture app.
 ---
 
 # Flutter Feature Clean Architecture
 
 ## Goal
 
-Implement Flutter features in the existing project style while preserving Clean Architecture boundaries and GetX conventions.
+Implement Flutter features in the existing project style while preserving Clean Architecture boundaries and the project's state management conventions.
 
 ## Discovery
 
@@ -15,7 +15,7 @@ Implement Flutter features in the existing project style while preserving Clean 
 2. Inspect the target feature folder and similar completed features.
 3. Identify local conventions for:
    - controller state shape
-   - bindings and route registration
+   - state management, DI, and route registration
    - repository/API naming
    - request params
    - Freezed model style
@@ -25,8 +25,8 @@ Implement Flutter features in the existing project style while preserving Clean 
 
 ## Layering Rules
 
-- UI/page/widgets depend on controller state only.
-- Controllers depend on repositories/use cases, never on Dio/API clients directly.
+- UI/page/widgets depend on state holders, view models, controllers, or notifiers only through the project pattern.
+- State holders depend on repositories/use cases, never on Dio/API clients directly.
 - Repositories return `Future<Either<Failure, T>>`.
 - API classes wrap Dio or project network clients.
 - Data models are immutable Freezed models with JSON serialization.
@@ -37,18 +37,18 @@ Implement Flutter features in the existing project style while preserving Clean 
 1. Start with the smallest end-to-end path:
    - request params/model if needed
    - API/repository if network/data is needed
-   - controller state and actions
-   - binding/route wiring
+   - state holder actions
+   - DI/route wiring
    - page/widgets
    - tests
-2. Keep controller state explicit and easy to observe:
-   - `Rx<AsyncState<T>>`, `RxBool`, `Rxn<T>`, or local project equivalent
-   - `assignAll` for Rx lists
+2. Keep state explicit and easy to observe:
+   - use the project's existing async/data/error state shape
+   - update collections through the state management pattern already used by the project
    - `fold` for Either results
 3. Keep widgets focused:
    - `StatelessWidget` unless local ephemeral state is required
    - split widgets when `build` becomes hard to scan
-   - wrap only changing leaves in `Obx`
+   - rebuild only the smallest widget subtree that depends on changing state
    - use const leaf widgets
 4. Add user states:
    - loading
@@ -74,7 +74,7 @@ Implement Flutter features in the existing project style while preserving Clean 
 
 ## Do Not
 
-- Do not introduce Bloc, Riverpod, Provider, or another state manager.
+- Do not introduce or replace the state management library unless the user explicitly asks.
 - Do not call Dio from controllers or widgets.
 - Do not return raw exceptions from repositories.
 - Do not skip DI registration for new services/repositories/controllers.

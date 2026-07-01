@@ -1,6 +1,6 @@
 ---
 name: flutter-bugfix-debug
-description: Use this skill when debugging Flutter analyze failures, failing tests, build failures, runtime exceptions, GetX state bugs, Dio/repository failures, navigation/binding issues, or UI regressions.
+description: Use this skill when debugging Flutter analyze failures, failing tests, build failures, runtime exceptions, state-management bugs, Dio/repository failures, navigation/DI issues, or UI regressions.
 ---
 
 # Flutter Bugfix Debug
@@ -27,10 +27,10 @@ Reproduce, isolate, and fix Flutter/Dart failures with minimal, project-consiste
 ## Common Flutter Checks
 
 - Missing or stale generated files after Freezed/json/injectable changes.
-- Controller not registered in binding.
+- State holder, notifier, controller, or service not registered in DI/routing.
 - GetIt registration missing or duplicated in tests.
-- `Rx` list mutated directly instead of `assignAll`, `add`, `remove`, or `refresh` as appropriate.
-- `Obx` reading no reactive values or too many reactive values.
+- Collection state mutated in a way the state-management layer cannot observe.
+- State listener/builder is too broad, too narrow, or not subscribed to the expected state.
 - Navigation argument type mismatch.
 - Repository returning wrong `Left`/`Right` mapping.
 - Widget test stuck because of `pumpAndSettle()`.

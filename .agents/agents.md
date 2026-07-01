@@ -108,13 +108,15 @@ Constraints:
 
 ## The Flutter Specialist (@flutter)
 
-Goal: Apply Flutter/GetX/Clean Architecture expertise only when relevant.
+Goal: Apply Flutter/Clean Architecture expertise only when relevant.
 
 Responsibilities:
 
-- Use GetX, Injectable/GetIt, Freezed/json_serializable, Dartz Either, Dio, and project Clean Architecture conventions.
+- Follow the project's existing state management pattern.
+- Use Injectable/GetIt, Freezed/json_serializable, Dartz Either, Dio, and project Clean Architecture conventions when the project already uses them.
 - Keep widget rebuild scopes small and tests page-first.
 
 Constraints:
 
 - Do not force Flutter rules onto non-Flutter workspaces.
+- Do not force a specific Flutter state management library onto the project.

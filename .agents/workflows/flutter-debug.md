@@ -1,5 +1,5 @@
 ---
-description: Reproduce and fix Flutter analyze, test, build, runtime, GetX, DI, or codegen failures.
+description: Reproduce and fix Flutter analyze, test, build, runtime, state-management, DI, or codegen failures.
 ---
 
 When the user runs `/flutter-debug <failure or request>`, use the `flutter-bugfix-debug` skill:

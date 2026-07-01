@@ -29,7 +29,7 @@ Choose the most relevant skill or workflow based on the request:
 - Docs, README, API docs, research, migration notes, or source comparison: use `codex-docs-research`.
 - UI, web app, dashboard, design polish, or product workflow: use `codex-frontend-product-ui`.
 - Git commit, branch, changelog, release note, or push workflow: use `codex-git-workflow`.
-- Flutter/GetX/Clean Architecture project: also use the Flutter-specific skills.
+- Flutter/Clean Architecture project: also use the Flutter-specific skills.
 
 ## Implementation Standards
 

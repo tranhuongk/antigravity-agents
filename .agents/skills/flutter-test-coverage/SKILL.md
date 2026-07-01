@@ -11,7 +11,7 @@ Write high-value Flutter tests and report changed LOC coverage. Prioritize reali
 
 ## Required Workflow
 
-1. Read existing test helpers, mocks, fixtures, GetIt setup, GetX setup, and similar tests.
+1. Read existing test helpers, mocks, fixtures, DI setup, state-management setup, and similar tests.
 2. Prefer full page/widget tests for user-facing behavior.
 3. Add controller/business logic tests when state transitions, mapping, or error handling are significant.
 4. Add repository tests when API mapping or error translation changed.
@@ -30,8 +30,8 @@ Write high-value Flutter tests and report changed LOC coverage. Prioritize reali
 
 - Use `pump()` instead of `pumpAndSettle()` unless there is a proven reason.
 - For dialogs and bottom sheets, pump several short frames.
-- Use `Get.testMode = true` in setup.
-- Reset GetX in teardown.
+- Initialize and reset state-management containers using project conventions.
+- Reset global state in teardown.
 - Unregister GetIt dependencies before registering mocks.
 - Use project mock libraries and fixture patterns.
 - Use `tester.runAsync()` for real async operations in widget tests.

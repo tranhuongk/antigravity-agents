@@ -1,5 +1,5 @@
 ---
-description: Implement a Flutter/GetX Clean Architecture feature with project discovery, minimal diff, and verification.
+description: Implement a Flutter Clean Architecture feature with project discovery, minimal diff, and verification.
 ---
 
 When the user runs `/flutter-feature <request>`, implement the request using these steps:
