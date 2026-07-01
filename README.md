@@ -15,8 +15,16 @@ It is designed to behave like a strong Codex-style workspace agent:
 
 Run this from the root of the project currently open in your CLI:
 
+macOS/Linux:
+
 ```sh
 curl -fsSL https://raw.githubusercontent.com/tranhuongk/antigravity-agents/main/install.sh | bash
+```
+
+Windows PowerShell:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/tranhuongk/antigravity-agents/main/install.ps1 | iex"
 ```
 
 Or install into a specific project path:
