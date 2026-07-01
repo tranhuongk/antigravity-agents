@@ -9,7 +9,7 @@ It is designed to behave like a strong Codex-style workspace agent:
 - Follow existing architecture and local conventions.
 - Keep diffs minimal and protect user changes.
 - Implement end to end, then verify with the right tests or commands.
-- Use Flutter-specific expertise only when the project or task is Flutter/Dart, while following the project's existing state management.
+- For Flutter/Dart projects, prefer the official Flutter and Dart team Agent Skills.
 
 ## Install in the Current Project
 
@@ -31,6 +31,13 @@ Or install into a specific project path:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/tranhuongk/antigravity-agents/main/install.sh | bash -s -- /absolute/path/to/project
+```
+
+If the target contains `pubspec.yaml`, the installer also tries to install the official Flutter and Dart team skills:
+
+```sh
+npx skills add flutter/skills --skill '*' --agent universal --yes
+npx skills add dart-lang/skills --skill '*' --agent universal --yes
 ```
 
 Or copy these entries into the root of the project:
@@ -59,7 +66,7 @@ For skills, you can also try:
 ## What is included
 
 - `.agents/rules/00-codex-universal-expert.md`: always-on Codex-style behavior for any project.
-- `.agents/rules/10-flutter-google-expert.md`: model-decision Flutter specialist rules.
+- `.agents/rules/10-flutter-google-expert.md`: routes Flutter/Dart tasks to official Flutter and Dart skills.
 - `.agents/agents.md`: optional universal role map for larger tasks.
 - `.agents/skills/codex-codebase-implementation/SKILL.md`: general implementation workflow.
 - `.agents/skills/codex-debug-fix/SKILL.md`: reproduce, fix, and verify failures.
@@ -68,12 +75,8 @@ For skills, you can also try:
 - `.agents/skills/codex-docs-research/SKILL.md`: documentation and source-grounded research.
 - `.agents/skills/codex-frontend-product-ui/SKILL.md`: frontend/product UI implementation.
 - `.agents/skills/codex-git-workflow/SKILL.md`: safe Git commit/push/release workflow.
-- `.agents/skills/flutter-feature-clean-architecture/SKILL.md`: implementation workflow.
-- `.agents/skills/flutter-test-coverage/SKILL.md`: page-first tests and coverage workflow.
-- `.agents/skills/flutter-code-review/SKILL.md`: review workflow with findings first.
-- `.agents/skills/flutter-bugfix-debug/SKILL.md`: debug and fix workflow.
-- `.agents/skills/flutter-codegen-di/SKILL.md`: Freezed/json_serializable/Injectable workflow.
-- `.agents/workflows/*.md`: slash-command prompts for universal and Flutter-specific tasks.
+- Official Flutter/Dart skills are installed from `flutter/skills` and `dart-lang/skills` for Flutter projects.
+- `.agents/workflows/*.md`: slash-command prompts for universal tasks.
 - `AGENTS.md`: fallback root instructions for tools that inspect root agent files.
 
 ## Useful Workflows
@@ -84,8 +87,7 @@ For skills, you can also try:
 - `/codex-test <request>`: add/run tests and verification.
 - `/codex-docs <request>`: write docs or research.
 - `/codex-git <request>`: commit, push, or prepare release notes safely.
-- `/flutter-feature <request>`: implement a Flutter feature.
-- `/flutter-test-changed <request>`: write Flutter tests and report changed LOC coverage.
+- For Flutter tasks, ask naturally; the installed official Flutter/Dart skills should route to the right workflow.
 
 ## Notes
 
@@ -96,3 +98,6 @@ Official references:
 - https://antigravity.google/docs/rules-workflows
 - https://antigravity.google/docs/skills
 - https://codelabs.developers.google.com/autonomous-ai-developer-pipelines-antigravity
+- https://docs.flutter.dev/ai/agent-skills
+- https://github.com/flutter/skills
+- https://github.com/dart-lang/skills

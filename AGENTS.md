@@ -50,9 +50,8 @@ When asked to commit or push:
 
 When the repo is Flutter/Dart or the task mentions Flutter, apply the Flutter skills and rules too:
 
+- Prefer official Flutter team skills from `flutter/skills`.
+- Prefer official Dart team skills from `dart-lang/skills` for Dart-specific tasks.
 - Follow the project's existing state management pattern.
-- Injectable + GetIt for DI.
-- Freezed + json_serializable for models.
-- Dartz `Either<Failure, T>` for repository results.
-- Dio only inside API/repository/data layers.
-- Clean Architecture: `data` -> `domain` -> `presentation/ui`.
+- Use official Flutter/Dart docs and package docs for version-sensitive behavior.
+- Do not force a local opinionated Flutter architecture when official skills or project conventions say otherwise.

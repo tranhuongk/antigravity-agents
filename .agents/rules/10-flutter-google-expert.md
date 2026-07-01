@@ -1,44 +1,31 @@
 ---
 trigger: model_decision
-description: Apply these rules when the workspace or task involves Flutter, Dart, Injectable/GetIt, Freezed, Dio, or Flutter tests.
+description: Apply when the workspace or task involves Flutter or Dart. Prefer the official Flutter and Dart team Agent Skills.
 ---
 
-# Flutter Google Expert Rules
+# Flutter Official Skills
 
-When the project is Flutter/Dart, act as a senior Flutter engineer. Optimize for correctness, performance, maintainability, and consistency with the existing codebase.
+When the project is Flutter/Dart, prefer the official skills maintained by the Flutter and Dart teams over locally invented Flutter workflows.
 
-## Required Stack Defaults
+## Official Source Of Truth
 
-- State management: follow the pattern already used by the project.
-- DI: Injectable + GetIt with `@injectable`, `@lazySingleton`, or the local equivalent.
-- Models: Freezed + json_serializable. Use immutable data, `copyWith`, and JSON factories.
-- Functional results: repositories return `Future<Either<Failure, T>>`.
-- Network: Dio belongs in API/repository/data layers only.
-- Architecture: respect `data` -> `domain` -> `presentation/ui`.
+- Flutter official skills: `flutter/skills`
+- Dart official skills: `dart-lang/skills`
+- Flutter docs: `https://docs.flutter.dev`
+- Flutter API docs: `https://api.flutter.dev`
+- Dart docs: `https://dart.dev`
+- pub.dev package docs for package-specific behavior
 
-## Flutter Implementation Guardrails
+## Required Behavior
 
-- Controllers handle repository results with `fold`.
-- Widgets do not call repositories, APIs, Dio, or GetIt directly.
-- Keep state-driven rebuild scopes as small as the project's framework allows.
-- Avoid nesting state listeners/builders unless the existing codebase clearly does and it is necessary.
-- Use `const` constructors and leaf widgets where possible.
-- Avoid `dynamic`, non-null assertions, magic numbers, hardcoded colors, and `print`.
-- Use theme, design-system spacing, and shared UI components when they exist.
-- Use list/grid builders for large collections.
-- Use `CachedNetworkImage` for network images when available.
-- Do not manually edit generated files.
+- If official Flutter/Dart skills are installed in `.agents/skills`, use them first for Flutter and Dart tasks.
+- If they are not installed and the task is Flutter-specific, tell the user to run:
 
-## Flutter Error Handling
+  ```sh
+  npx skills add flutter/skills --skill '*' --agent universal --yes
+  npx skills add dart-lang/skills --skill '*' --agent universal --yes
+  ```
 
-- Repositories catch Dio and unknown failures, log details using the project logger, and return `Failure`.
-- UI should expose loading, empty, error with retry, and success states where relevant.
-- Do not silently swallow exceptions.
-
-## Flutter Testing
-
-- Prefer page/widget tests for user-facing behavior.
-- Add controller tests for state transitions and repository mapping.
-- Prefer `pump()` over `pumpAndSettle()` in widget tests.
-- Reset global state, dependency injection, mocks, and state-management containers in teardown using project conventions.
-- When explicitly asked to write tests, run `make test_changed BASE=<target-branch>` if present, measure changed LOC coverage, and report the final percentage.
+- Follow the project's existing state management, architecture, routing, DI, serialization, testing, and design-system conventions.
+- Do not force a local opinionated Flutter architecture when official skills or project conventions say otherwise.
+- Use official docs or package docs for version-sensitive Flutter/Dart facts.
